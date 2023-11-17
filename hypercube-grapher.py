@@ -48,7 +48,12 @@ def plot_hypercube_graph(n, adjacency):
     plt.show()
 
 
-cube_dimension = 4
-adjacency_list = get_adjacency_list_hypercube(cube_dimension)
-print(adjacency_list)
-plot_hypercube_graph(cube_dimension, adjacency_list)
+def main():
+    cube_dimension = 4
+    adjacency_list = get_adjacency_list_hypercube(cube_dimension)
+    print(adjacency_list)
+    plot_hypercube_graph(cube_dimension, adjacency_list)
+
+
+if __name__ == '__main__':
+    main()
