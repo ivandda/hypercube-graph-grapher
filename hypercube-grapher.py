@@ -1,3 +1,7 @@
+import matplotlib.pyplot as plt
+import networkx as nx
+
+
 def get_adjacency_list_hypercube(n):
     all_nodes = get_all_nodes(n)
     all_nodes_adjacencies = {node: [] for node in all_nodes}
@@ -24,6 +28,27 @@ def get_node_binary_difference(s1, s2):
     return sum(c1 != c2 for c1, c2 in zip(s1, s2))
 
 
-cube_dimension = 3
+def plot_hypercube_graph(n, adjacency):
+    G = nx.Graph(adjacency)
+    pos = nx.circular_layout(G)
+    plt.figure(figsize=(8, 6))  # Adjust figure size
+
+    nx.draw(G, pos, with_labels=True, node_size=500, node_color='skyblue', font_weight='bold')
+
+    # Number of vertices and edges
+    num_vertices = 2 ** n
+    num_edges = n * (2 ** (n - 1))
+
+    plt.text(0.05, 0.95, f"Number of Vertices: {num_vertices}", ha='left', va='center', fontsize=10,
+             transform=plt.gca().transAxes)
+    plt.text(0.05, 0.90, f"Number of Edges: {num_edges}", ha='left', va='center', fontsize=10,
+             transform=plt.gca().transAxes)
+
+    plt.title(f'Hypercube Graph of {n} dimensions')
+    plt.show()
+
+
+cube_dimension = 4
 adjacency_list = get_adjacency_list_hypercube(cube_dimension)
 print(adjacency_list)
+plot_hypercube_graph(cube_dimension, adjacency_list)
