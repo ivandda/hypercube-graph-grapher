@@ -31,7 +31,7 @@ def get_node_binary_difference(s1, s2):
 def plot_hypercube_graph(n, adjacency):
     G = nx.Graph(adjacency)
     pos = nx.circular_layout(G)
-    plt.figure(figsize=(8, 6))  # Adjust figure size
+    plt.figure(figsize=(8, 6))
 
     nx.draw(G, pos, with_labels=True, node_size=500, node_color='skyblue', font_weight='bold')
 
@@ -45,7 +45,9 @@ def plot_hypercube_graph(n, adjacency):
              transform=plt.gca().transAxes)
 
     plt.title(f'Hypercube Graph of {n} dimensions')
+    plt.savefig(f'hypercube_{n}_dimensions.png')  # Save the plot as an image file
     plt.show()
+    plt.close()
 
 
 def main():
