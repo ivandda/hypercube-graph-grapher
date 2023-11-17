@@ -20,7 +20,7 @@ def get_all_nodes(cube_dimension):
         raise ValueError('The dimension of the hypercube must be greater than 0')
     nodes = ['']
     for i in range(cube_dimension):
-        nodes = ['0' + s for s in nodes] + ['1' + s for s in nodes]
+        nodes = ['0' + node for node in nodes] + ['1' + node for node in nodes]
     return nodes
 
 
