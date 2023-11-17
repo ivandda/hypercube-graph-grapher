@@ -49,7 +49,8 @@ def plot_hypercube_graph(n, adjacency):
 
 
 def main():
-    cube_dimension = 4
+    # cube_dimension = 4
+    cube_dimension = int(input("Enter the dimension of the hypercube: "))
     adjacency_list = get_adjacency_list_hypercube(cube_dimension)
     print(adjacency_list)
     plot_hypercube_graph(cube_dimension, adjacency_list)
